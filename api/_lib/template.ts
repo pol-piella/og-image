@@ -50,10 +50,9 @@ function getCss(theme: string, fontSize: string) {
         background: ${background};
         background-size: 100px 100px;
         height: 100vh;
+        padding-left: 40px;
         display: flex;
-        text-align: center;
         align-items: center;
-        justify-content: center;
     }
 
     code {
@@ -95,6 +94,26 @@ function getCss(theme: string, fontSize: string) {
         margin: 0 .05em 0 .1em;
         vertical-align: -0.1em;
     }
+
+    .line {
+        position: absolute;
+        right: 0;
+        width: 100%;
+        height: 50px;
+        background: purple;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .site-name {
+        font-family: 'Inter', sans-serif;
+        color: gray;
+        font-size: ${sanitizeHtml("20px")};
+        font-style: bold;
+
+    }
     
     .heading {
         font-family: 'Inter', sans-serif;
@@ -117,11 +136,12 @@ export function getHtml(parsedReq: ParsedRequest) {
     </style>
     <body>
         <div>
+            <div class="site-name">${marked("**Pol Piella Codes**")}</div>
             <div class="heading">${emojify(
                 md ? marked(text) : sanitizeHtml(text)
             )}
-            </div>
         </div>
     </body>
+    <div class="line"></div>
 </html>`;
 }
