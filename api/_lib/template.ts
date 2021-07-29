@@ -98,6 +98,7 @@ function getCss(theme: string, fontSize: string) {
     .line {
         position: absolute;
         right: 0;
+        margin-top: 50px;
         width: 100%;
         height: 50px;
         background: purple;
@@ -106,21 +107,12 @@ function getCss(theme: string, fontSize: string) {
     p {
         margin: 0;
     }
-
-    .site-name {
-        font-family: 'Inter', sans-serif;
-        color: gray;
-        font-size: ${sanitizeHtml("20px")};
-        font-style: bold;
-
-    }
     
     .heading {
         font-family: 'Inter', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
         color: ${foreground};
-        line-height: 1.8;
     }`;
 }
 
@@ -136,7 +128,6 @@ export function getHtml(parsedReq: ParsedRequest) {
     </style>
     <body>
         <div>
-            <div class="site-name">${marked("**Pol Piella Codes**")}</div>
             <div class="heading">${emojify(
                 md ? marked(text) : sanitizeHtml(text)
             )}
